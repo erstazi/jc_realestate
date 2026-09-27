@@ -238,8 +238,8 @@ msgid "You don't own area id @1"
 msgstr "Ви не є власником ділянки з ID @1"
 
 #: init.lua
-msgid "Selling area @1"
-msgstr "Продаж ділянки @1"
+msgid "Selling area @1 [@2]"
+msgstr "Продаж ділянки @1 [@2]"
 
 #: init.lua
 msgid "Price must be a whole number greater than zero."
@@ -252,3 +252,19 @@ msgstr "Земля на продаж від @1 - @2 @3"
 #: init.lua
 msgid "For Sale Sign"
 msgstr "Табличка «Продається»"
+
+#: init.lua
+msgid "Remove a player from a real estate group."
+msgstr "Видалити гравця з групи нерухомості."
+
+#: init.lua
+msgid "Usage: /realestate_clear_group <groupname> <player>"
+msgstr "Використання: /realestate_clear_group <назва_групи> <гравець>"
+
+#: init.lua
+msgid "Removed @1 from group @2."
+msgstr "@1 видалено з групи @2."
+
+#: init.lua
+msgid "Player @1 does not own an area in group @2."
+msgstr "Гравець @1 не володіє ділянкою в групі @2."

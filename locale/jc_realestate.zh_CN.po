@@ -238,8 +238,8 @@ msgid "You don't own area id @1"
 msgstr "您不是ID为@1的区域所有者"
 
 #: init.lua
-msgid "Selling area @1"
-msgstr "出售区域@1"
+msgid "Selling area @1 [@2]"
+msgstr "出售区域 @1 [@2]"
 
 #: init.lua
 msgid "Price must be a whole number greater than zero."
@@ -252,3 +252,19 @@ msgstr "@1出售的土地 - @2 @3"
 #: init.lua
 msgid "For Sale Sign"
 msgstr "出售告示牌"
+
+#: init.lua
+msgid "Remove a player from a real estate group."
+msgstr "从房地产组中移除玩家。"
+
+#: init.lua
+msgid "Usage: /realestate_clear_group <groupname> <player>"
+msgstr "用法：/realestate_clear_group <组名> <玩家>"
+
+#: init.lua
+msgid "Removed @1 from group @2."
+msgstr "已将@1从组@2中移除。"
+
+#: init.lua
+msgid "Player @1 does not own an area in group @2."
+msgstr "玩家@1不拥有组@2中的区域。"

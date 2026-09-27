@@ -233,7 +233,7 @@ local function player_owns_group(player_name, group)
   for _, area_id in ipairs(get_group_areas(group)) do
     local area = areas.areas[area_id]
 
-    if area and area.owner == player_name then
+    if area and area.owner == player_name and get_area_group(area_id) == group then
       return true
     end
   end
@@ -392,7 +392,7 @@ local function get_setup_formspec(pos, player)
     "field[0.5," .. fields_y .. ";2.5,1;name;" .. ESC(S("Area ID")) .. ";" .. ESC(id) .. "]" ..
     "field[3.2," .. fields_y .. ";2.5,1;price;" .. ESC(S("Price")) .. ";" .. ESC(price) .. "]" ..
     "field[5.9," .. fields_y .. ";2.5,1;group;" .. ESC(S("Group Name")) .. ";" .. ESC(group) .. "]" ..
-    "button_exit[0.2," .. buttons_y .. ";1,1;Quit;" .. ESC(S("Quit")) .. "]" ..
+    "button_exit[0.2," .. buttons_y .. ";3,1;Quit;" .. ESC(S("Quit")) .. "]" ..
     "button[5.2," .. buttons_y .. ";3,1;sell;" .. ESC(S("Save")) .. "]" ..
     ""
 
@@ -451,7 +451,7 @@ local function get_sell_formspec(pos, player)
     "label[1.7,2.85;" .. ESC(currency_name) .. "]" ..
     "label[0.5,3.5;" .. ESC(S("Surface Area:")) .. " " .. jc_realestate.area(id) .. " m²]" ..
     (group ~= "" and "label[0.5,4.0;" .. ESC(S("Group:")) .. " " .. ESC(group) .. "]" or "") ..
-    "button_exit[0.2,5.5;1,1;Quit;" .. ESC(S("Quit")) .. "]" ..
+    "button_exit[0.2,5.5;3,1;Quit;" .. ESC(S("Quit")) .. "]" ..
     "button[4.7,5.5;3,1;buy;" .. ESC(S("Buy")) .. "]"
 
   core.after(0.1, function()
@@ -824,7 +824,7 @@ core.register_on_player_receive_fields(function(player, form, pressed)
           return
         end
 
-        core.chat_send_player(name, S("Selling area @1", (areas.areas[id].name or "") ) )
+        core.chat_send_player(name, S("Selling area @1 [@2]", (areas.areas[id].name or ""), id ) )
         meta:set_int("id", id)
       end
 
@@ -873,6 +873,34 @@ core.register_on_player_receive_fields(function(player, form, pressed)
     end
   end
 end)
+
+core.register_chatcommand("realestate_clear_group", {
+  params = "<groupname> <player>",
+  description = S("Remove a player from a real estate group."),
+  privs = {server = true},
+  func = function(name, param)
+    local group, player_name = param:match("^(%S+)%s+(.+)$")
+
+    if not group or not player_name then
+      return false, S("Usage: /realestate_clear_group <groupname> <player>")
+    end
+
+    player_name = player_name:trim()
+
+    local area_ids = get_group_areas(group)
+
+    for _, area_id in ipairs(area_ids) do
+      local area = areas.areas[area_id]
+
+      if area and area.owner == player_name then
+        remove_group_area(group, area_id)
+        return true, S("Removed @1 from group @2.", player_name, group)
+      end
+    end
+
+    return false, S("Player @1 does not own an area in group @2.", player_name, group)
+  end,
+})
 
 core.register_node("jc_realestate:sign", {
   tiles = {

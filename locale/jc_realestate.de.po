@@ -238,8 +238,8 @@ msgid "You don't own area id @1"
 msgstr "Sie besitzen das Gebiet mit der ID @1 nicht"
 
 #: init.lua
-msgid "Selling area @1"
-msgstr "Gebiet @1 verkaufen"
+msgid "Selling area @1 [@2]"
+msgstr "Bereich @1 verkaufen [@2]"
 
 #: init.lua
 msgid "Price must be a whole number greater than zero."
@@ -252,3 +252,19 @@ msgstr "Grundstück von @1 zum Verkauf - @2 @3"
 #: init.lua
 msgid "For Sale Sign"
 msgstr "Verkaufsschild"
+
+#: init.lua
+msgid "Remove a player from a real estate group."
+msgstr "Einen Spieler aus einer Immobiliengruppe entfernen."
+
+#: init.lua
+msgid "Usage: /realestate_clear_group <groupname> <player>"
+msgstr "Verwendung: /realestate_clear_group <Gruppenname> <Spieler>"
+
+#: init.lua
+msgid "Removed @1 from group @2."
+msgstr "@1 wurde aus der Gruppe @2 entfernt."
+
+#: init.lua
+msgid "Player @1 does not own an area in group @2."
+msgstr "Spieler @1 besitzt kein Gebiet in der Gruppe @2."

@@ -238,8 +238,8 @@ msgid "You don't own area id @1"
 msgstr "Je bent geen eigenaar van gebied met ID @1"
 
 #: init.lua
-msgid "Selling area @1"
-msgstr "Gebied @1 verkopen"
+msgid "Selling area @1 [@2]"
+msgstr "Gebied @1 verkopen [@2]"
 
 #: init.lua
 msgid "Price must be a whole number greater than zero."
@@ -252,3 +252,19 @@ msgstr "Grond te koop van @1 - @2 @3"
 #: init.lua
 msgid "For Sale Sign"
 msgstr "Te koop-bord"
+
+#: init.lua
+msgid "Remove a player from a real estate group."
+msgstr "Een speler uit een vastgoedgroep verwijderen."
+
+#: init.lua
+msgid "Usage: /realestate_clear_group <groupname> <player>"
+msgstr "Gebruik: /realestate_clear_group <groepsnaam> <speler>"
+
+#: init.lua
+msgid "Removed @1 from group @2."
+msgstr "@1 is verwijderd uit groep @2."
+
+#: init.lua
+msgid "Player @1 does not own an area in group @2."
+msgstr "Speler @1 bezit geen gebied in groep @2."
