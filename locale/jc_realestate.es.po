@@ -1,0 +1,254 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jc_realestate\n"
+"Language: es\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: init.lua
+msgid "Gold Ingot"
+msgstr "Lingote de oro"
+
+#: init.lua
+msgid "Gold Block"
+msgstr "Bloque de oro"
+
+#: init.lua
+msgid "Diamond"
+msgstr "Diamante"
+
+#: init.lua
+msgid "Mese"
+msgstr "Mese"
+
+#: init.lua
+msgid "Mese Crystal"
+msgstr "Cristal de mese"
+
+#: init.lua
+msgid "Mese Crystal Fragment"
+msgstr "Fragmento de cristal de mese"
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payment. Use @2 to collect it."
+msgstr "Inmobiliaria: Tienes @1 pago pendiente. Usa @2 para cobrarlo."
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payments. Use @2 to collect them."
+msgstr "Inmobiliaria: Tienes @1 pagos pendientes. Usa @2 para cobrarlos."
+
+#: init.lua
+msgid "Real Estate: You have no pending payments."
+msgstr "Inmobiliaria: No tienes pagos pendientes."
+
+#: init.lua
+msgid "Real Estate: You received @1 @2."
+msgstr "Inmobiliaria: Has recibido @1 @2."
+
+#: init.lua
+msgid "Real Estate: Your inventory does not have enough room for your pending payments."
+msgstr "Inmobiliaria: Tu inventario no tiene suficiente espacio para tus pagos pendientes."
+
+#: init.lua
+msgid "Real Estate: Some payments are still waiting because your inventory is full. Use the command @1 again when you have room."
+msgstr "Inmobiliaria: Algunos pagos siguen pendientes porque tu inventario está lleno. Usa el comando @1 de nuevo cuando tengas espacio."
+
+#: init.lua
+msgid "Real Estate: All pending payments have been collected."
+msgstr "Inmobiliaria: Se han cobrado todos los pagos pendientes."
+
+#: init.lua
+msgid "Collect pending real estate payments"
+msgstr "Cobrar pagos inmobiliarios pendientes"
+
+#: init.lua
+msgid "You must be online to claim your payments."
+msgstr "Debes estar conectado para cobrar tus pagos."
+
+#: init.lua
+msgid "Land for sale by @1"
+msgstr "Terreno en venta de @1"
+
+#: init.lua
+msgid "Real estate for sale"
+msgstr "Inmueble en venta"
+
+#: init.lua
+msgid "Currency:"
+msgstr "Moneda:"
+
+#: init.lua
+msgid "Area ID"
+msgstr "ID del area"
+
+#: init.lua
+msgid "Price"
+msgstr "Precio"
+
+#: init.lua
+msgid "Group Name"
+msgstr "Nombre del grupo"
+
+#: init.lua
+msgid "Quit"
+msgstr "Salir"
+
+#: init.lua
+msgid "Save"
+msgstr "Guardar"
+
+#: init.lua
+msgid "This sale point is unconfigured."
+msgstr "Este punto de venta no esta configurado."
+
+#: init.lua
+msgid "This sale point has an invalid currency."
+msgstr "Este punto de venta tiene una moneda no valida."
+
+#: init.lua
+msgid "The area no longer exists."
+msgstr "El area ya no existe."
+
+#: init.lua
+msgid "Area ID:"
+msgstr "ID del area:"
+
+#: init.lua
+msgid "Area Name:"
+msgstr "Nombre del area:"
+
+#: init.lua
+msgid "Area Price:"
+msgstr "Precio del area:"
+
+#: init.lua
+msgid "Surface Area:"
+msgstr "Superficie:"
+
+#: init.lua
+msgid "Group:"
+msgstr "Grupo:"
+
+#: init.lua
+msgid "Buy"
+msgstr "Comprar"
+
+#: init.lua
+msgid "Locked Chest (owned by @1)"
+msgstr "Cofre cerrado (propiedad de @1)"
+
+#: init.lua
+msgid "Steel Door\nOwned by @1"
+msgstr "Puerta de acero\nPropiedad de @1"
+
+#: init.lua
+msgid "Mailbox of @1"
+msgstr "Buzon de @1"
+
+#: init.lua
+msgid "Item frame (owned by @1)"
+msgstr "Marco de objetos (propiedad de @1)"
+
+#: init.lua
+msgid "Pedestral frame (owned by @1)"
+msgstr "Marco de pedestal (propiedad de @1)"
+
+#: init.lua
+msgid "Safe (owned by @1)"
+msgstr "Caja fuerte (propiedad de @1)"
+
+#: init.lua
+msgid "Exchange shop (owned by @1)"
+msgstr "Tienda de intercambio (propiedad de @1)"
+
+#: init.lua
+msgid "Bank (owned by @1)"
+msgstr "Banco (propiedad de @1)"
+
+#: init.lua
+msgid "Moneychanger (owned by @1)"
+msgstr "Casa de cambio (propiedad de @1)"
+
+#: init.lua
+msgid "Warehouse (owned by @1)"
+msgstr "Almacen (propiedad de @1)"
+
+#: init.lua
+msgid "Exchange shop \"@1\" (@2)"
+msgstr "Tienda de intercambio \"@1\" (@2)"
+
+#: init.lua
+msgid "Exchange shop (@1)"
+msgstr "Tienda de intercambio (@1)"
+
+#: init.lua
+msgid "Wall Sign (@1)"
+msgstr "Cartel de pared (@1)"
+
+#: init.lua
+msgid "Locked sign, owned by @1"
+msgstr "Cartel cerrado, propiedad de @1"
+
+#: init.lua
+msgid "Owned by @1"
+msgstr "Propiedad de @1"
+
+#: init.lua
+msgid "The area has been transferred to you."
+msgstr "El area ha sido transferida a ti."
+
+#: init.lua
+msgid "Real Estate: You have a payment of @1 @2 waiting. Use the command @3 to collect it."
+msgstr "Inmobiliaria: Tienes un pago de @1 @2 pendiente. Usa el comando @3 para cobrarlo."
+
+#: init.lua
+msgid "This sale point has no owner."
+msgstr "Este punto de venta no tiene propietario."
+
+#: init.lua
+msgid "You cannot buy your own area."
+msgstr "No puedes comprar tu propia area."
+
+#: init.lua
+msgid "You already own a property in the group \"@1\"."
+msgstr "Ya tienes una propiedad en el grupo \"@1\"."
+
+#: init.lua
+msgid "You need @1 @2 to purchase this area. You have @3."
+msgstr "Necesitas @1 @2 para comprar esta area. Tienes @3."
+
+#: init.lua
+msgid "Unable to remove the payment from your inventory."
+msgstr "No se puede retirar el pago de tu inventario."
+
+#: init.lua
+msgid "The area could not be transferred."
+msgstr "No se pudo transferir el area."
+
+#: init.lua
+msgid "Invalid area number: \"@1\""
+msgstr "Numero de area no valido: \"@1\""
+
+#: init.lua
+msgid "No such area with id @1"
+msgstr "No existe un area con el ID @1"
+
+#: init.lua
+msgid "You don't own area id @1"
+msgstr "No eres propietario del area con ID @1"
+
+#: init.lua
+msgid "Selling area @1"
+msgstr "Vendiendo el area @1"
+
+#: init.lua
+msgid "Price must be a whole number greater than zero."
+msgstr "El precio debe ser un numero entero mayor que cero."
+
+#: init.lua
+msgid "Land for sale by @1 - @2 @3"
+msgstr "Terreno en venta de @1 - @2 @3"
+
+#: init.lua
+msgid "For Sale Sign"
+msgstr "Cartel de venta"

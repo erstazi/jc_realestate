@@ -1,0 +1,254 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jc_realestate\n"
+"Language: nl\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: init.lua
+msgid "Gold Ingot"
+msgstr "Goudstaaf"
+
+#: init.lua
+msgid "Gold Block"
+msgstr "Goudblok"
+
+#: init.lua
+msgid "Diamond"
+msgstr "Diamant"
+
+#: init.lua
+msgid "Mese"
+msgstr "Mese"
+
+#: init.lua
+msgid "Mese Crystal"
+msgstr "Mese-kristal"
+
+#: init.lua
+msgid "Mese Crystal Fragment"
+msgstr "Mese-kristalfragment"
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payment. Use @2 to collect it."
+msgstr "Onroerend goed: Je hebt @1 openstaande betaling. Gebruik @2 om deze te innen."
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payments. Use @2 to collect them."
+msgstr "Onroerend goed: Je hebt @1 openstaande betalingen. Gebruik @2 om deze te innen."
+
+#: init.lua
+msgid "Real Estate: You have no pending payments."
+msgstr "Onroerend goed: Je hebt geen openstaande betalingen."
+
+#: init.lua
+msgid "Real Estate: You received @1 @2."
+msgstr "Onroerend goed: Je hebt @1 @2 ontvangen."
+
+#: init.lua
+msgid "Real Estate: Your inventory does not have enough room for your pending payments."
+msgstr "Onroerend goed: Je inventaris heeft niet genoeg ruimte voor je openstaande betalingen."
+
+#: init.lua
+msgid "Real Estate: Some payments are still waiting because your inventory is full. Use the command @1 again when you have room."
+msgstr "Onroerend goed: Sommige betalingen wachten nog omdat je inventaris vol is. Gebruik het commando @1 opnieuw wanneer je ruimte hebt."
+
+#: init.lua
+msgid "Real Estate: All pending payments have been collected."
+msgstr "Onroerend goed: Alle openstaande betalingen zijn geïnd."
+
+#: init.lua
+msgid "Collect pending real estate payments"
+msgstr "Openstaande betalingen voor onroerend goed innen"
+
+#: init.lua
+msgid "You must be online to claim your payments."
+msgstr "Je moet online zijn om je betalingen te innen."
+
+#: init.lua
+msgid "Land for sale by @1"
+msgstr "Grond te koop van @1"
+
+#: init.lua
+msgid "Real estate for sale"
+msgstr "Onroerend goed te koop"
+
+#: init.lua
+msgid "Currency:"
+msgstr "Valuta:"
+
+#: init.lua
+msgid "Area ID"
+msgstr "Gebieds-ID"
+
+#: init.lua
+msgid "Price"
+msgstr "Prijs"
+
+#: init.lua
+msgid "Group Name"
+msgstr "Groepsnaam"
+
+#: init.lua
+msgid "Quit"
+msgstr "Afsluiten"
+
+#: init.lua
+msgid "Save"
+msgstr "Opslaan"
+
+#: init.lua
+msgid "This sale point is unconfigured."
+msgstr "Dit verkooppunt is niet geconfigureerd."
+
+#: init.lua
+msgid "This sale point has an invalid currency."
+msgstr "Dit verkooppunt heeft een ongeldige valuta."
+
+#: init.lua
+msgid "The area no longer exists."
+msgstr "Het gebied bestaat niet meer."
+
+#: init.lua
+msgid "Area ID:"
+msgstr "Gebieds-ID:"
+
+#: init.lua
+msgid "Area Name:"
+msgstr "Naam van gebied:"
+
+#: init.lua
+msgid "Area Price:"
+msgstr "Prijs van gebied:"
+
+#: init.lua
+msgid "Surface Area:"
+msgstr "Oppervlakte:"
+
+#: init.lua
+msgid "Group:"
+msgstr "Groep:"
+
+#: init.lua
+msgid "Buy"
+msgstr "Kopen"
+
+#: init.lua
+msgid "Locked Chest (owned by @1)"
+msgstr "Vergrendelde kist (eigendom van @1)"
+
+#: init.lua
+msgid "Steel Door\nOwned by @1"
+msgstr "Stalen deur\nEigendom van @1"
+
+#: init.lua
+msgid "Mailbox of @1"
+msgstr "Brievenbus van @1"
+
+#: init.lua
+msgid "Item frame (owned by @1)"
+msgstr "Voorwerpenframe (eigendom van @1)"
+
+#: init.lua
+msgid "Pedestral frame (owned by @1)"
+msgstr "Voetstukframe (eigendom van @1)"
+
+#: init.lua
+msgid "Safe (owned by @1)"
+msgstr "Kluis (eigendom van @1)"
+
+#: init.lua
+msgid "Exchange shop (owned by @1)"
+msgstr "Ruilwinkel (eigendom van @1)"
+
+#: init.lua
+msgid "Bank (owned by @1)"
+msgstr "Bank (eigendom van @1)"
+
+#: init.lua
+msgid "Moneychanger (owned by @1)"
+msgstr "Geldwisselkantoor (eigendom van @1)"
+
+#: init.lua
+msgid "Warehouse (owned by @1)"
+msgstr "Magazijn (eigendom van @1)"
+
+#: init.lua
+msgid "Exchange shop \"@1\" (@2)"
+msgstr "Ruilwinkel \"@1\" (@2)"
+
+#: init.lua
+msgid "Exchange shop (@1)"
+msgstr "Ruilwinkel (@1)"
+
+#: init.lua
+msgid "Wall Sign (@1)"
+msgstr "Muurbord (@1)"
+
+#: init.lua
+msgid "Locked sign, owned by @1"
+msgstr "Vergrendeld bord, eigendom van @1"
+
+#: init.lua
+msgid "Owned by @1"
+msgstr "Eigendom van @1"
+
+#: init.lua
+msgid "The area has been transferred to you."
+msgstr "Het gebied is aan jou overgedragen."
+
+#: init.lua
+msgid "Real Estate: You have a payment of @1 @2 waiting. Use the command @3 to collect it."
+msgstr "Onroerend goed: Er staat een betaling van @1 @2 voor je klaar. Gebruik het commando @3 om deze te innen."
+
+#: init.lua
+msgid "This sale point has no owner."
+msgstr "Dit verkooppunt heeft geen eigenaar."
+
+#: init.lua
+msgid "You cannot buy your own area."
+msgstr "Je kunt je eigen gebied niet kopen."
+
+#: init.lua
+msgid "You already own a property in the group \"@1\"."
+msgstr "Je bezit al een eigendom in de groep \"@1\"."
+
+#: init.lua
+msgid "You need @1 @2 to purchase this area. You have @3."
+msgstr "Je hebt @1 @2 nodig om dit gebied te kopen. Je hebt @3."
+
+#: init.lua
+msgid "Unable to remove the payment from your inventory."
+msgstr "Kan de betaling niet uit je inventaris verwijderen."
+
+#: init.lua
+msgid "The area could not be transferred."
+msgstr "Het gebied kon niet worden overgedragen."
+
+#: init.lua
+msgid "Invalid area number: \"@1\""
+msgstr "Ongeldig gebiedsnummer: \"@1\""
+
+#: init.lua
+msgid "No such area with id @1"
+msgstr "Er bestaat geen gebied met ID @1"
+
+#: init.lua
+msgid "You don't own area id @1"
+msgstr "Je bent geen eigenaar van gebied met ID @1"
+
+#: init.lua
+msgid "Selling area @1"
+msgstr "Gebied @1 verkopen"
+
+#: init.lua
+msgid "Price must be a whole number greater than zero."
+msgstr "De prijs moet een geheel getal groter dan nul zijn."
+
+#: init.lua
+msgid "Land for sale by @1 - @2 @3"
+msgstr "Grond te koop van @1 - @2 @3"
+
+#: init.lua
+msgid "For Sale Sign"
+msgstr "Te koop-bord"

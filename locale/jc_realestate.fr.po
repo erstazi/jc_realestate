@@ -1,0 +1,254 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jc_realestate\n"
+"Language: fr\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: init.lua
+msgid "Gold Ingot"
+msgstr "Lingot d'or"
+
+#: init.lua
+msgid "Gold Block"
+msgstr "Bloc d'or"
+
+#: init.lua
+msgid "Diamond"
+msgstr "Diamant"
+
+#: init.lua
+msgid "Mese"
+msgstr "Mese"
+
+#: init.lua
+msgid "Mese Crystal"
+msgstr "Cristal de mese"
+
+#: init.lua
+msgid "Mese Crystal Fragment"
+msgstr "Fragment de cristal de mese"
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payment. Use @2 to collect it."
+msgstr "Immobilier : vous avez @1 paiement en attente. Utilisez @2 pour le récupérer."
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payments. Use @2 to collect them."
+msgstr "Immobilier : vous avez @1 paiements en attente. Utilisez @2 pour les récupérer."
+
+#: init.lua
+msgid "Real Estate: You have no pending payments."
+msgstr "Immobilier : vous n'avez aucun paiement en attente."
+
+#: init.lua
+msgid "Real Estate: You received @1 @2."
+msgstr "Immobilier : vous avez reçu @1 @2."
+
+#: init.lua
+msgid "Real Estate: Your inventory does not have enough room for your pending payments."
+msgstr "Immobilier : votre inventaire n'a pas assez de place pour vos paiements en attente."
+
+#: init.lua
+msgid "Real Estate: Some payments are still waiting because your inventory is full. Use the command @1 again when you have room."
+msgstr "Immobilier : certains paiements sont toujours en attente car votre inventaire est plein. Utilisez à nouveau la commande @1 lorsque vous aurez de la place."
+
+#: init.lua
+msgid "Real Estate: All pending payments have been collected."
+msgstr "Immobilier : tous les paiements en attente ont été récupérés."
+
+#: init.lua
+msgid "Collect pending real estate payments"
+msgstr "Récupérer les paiements immobiliers en attente"
+
+#: init.lua
+msgid "You must be online to claim your payments."
+msgstr "Vous devez être en ligne pour récupérer vos paiements."
+
+#: init.lua
+msgid "Land for sale by @1"
+msgstr "Terrain à vendre par @1"
+
+#: init.lua
+msgid "Real estate for sale"
+msgstr "Bien immobilier à vendre"
+
+#: init.lua
+msgid "Currency:"
+msgstr "Devise :"
+
+#: init.lua
+msgid "Area ID"
+msgstr "ID de la zone"
+
+#: init.lua
+msgid "Price"
+msgstr "Prix"
+
+#: init.lua
+msgid "Group Name"
+msgstr "Nom du groupe"
+
+#: init.lua
+msgid "Quit"
+msgstr "Quitter"
+
+#: init.lua
+msgid "Save"
+msgstr "Enregistrer"
+
+#: init.lua
+msgid "This sale point is unconfigured."
+msgstr "Ce point de vente n'est pas configuré."
+
+#: init.lua
+msgid "This sale point has an invalid currency."
+msgstr "Ce point de vente utilise une devise invalide."
+
+#: init.lua
+msgid "The area no longer exists."
+msgstr "La zone n'existe plus."
+
+#: init.lua
+msgid "Area ID:"
+msgstr "ID de la zone :"
+
+#: init.lua
+msgid "Area Name:"
+msgstr "Nom de la zone :"
+
+#: init.lua
+msgid "Area Price:"
+msgstr "Prix de la zone :"
+
+#: init.lua
+msgid "Surface Area:"
+msgstr "Superficie :"
+
+#: init.lua
+msgid "Group:"
+msgstr "Groupe :"
+
+#: init.lua
+msgid "Buy"
+msgstr "Acheter"
+
+#: init.lua
+msgid "Locked Chest (owned by @1)"
+msgstr "Coffre verrouillé (appartenant à @1)"
+
+#: init.lua
+msgid "Steel Door\nOwned by @1"
+msgstr "Porte en acier\nAppartenant à @1"
+
+#: init.lua
+msgid "Mailbox of @1"
+msgstr "Boîte aux lettres de @1"
+
+#: init.lua
+msgid "Item frame (owned by @1)"
+msgstr "Cadre d'objet (appartenant à @1)"
+
+#: init.lua
+msgid "Pedestral frame (owned by @1)"
+msgstr "Cadre de piédestal (appartenant à @1)"
+
+#: init.lua
+msgid "Safe (owned by @1)"
+msgstr "Coffre-fort (appartenant à @1)"
+
+#: init.lua
+msgid "Exchange shop (owned by @1)"
+msgstr "Boutique d'échange (appartenant à @1)"
+
+#: init.lua
+msgid "Bank (owned by @1)"
+msgstr "Banque (appartenant à @1)"
+
+#: init.lua
+msgid "Moneychanger (owned by @1)"
+msgstr "Bureau de change (appartenant à @1)"
+
+#: init.lua
+msgid "Warehouse (owned by @1)"
+msgstr "Entrepôt (appartenant à @1)"
+
+#: init.lua
+msgid "Exchange shop \"@1\" (@2)"
+msgstr "Boutique d'échange \"@1\" (@2)"
+
+#: init.lua
+msgid "Exchange shop (@1)"
+msgstr "Boutique d'échange (@1)"
+
+#: init.lua
+msgid "Wall Sign (@1)"
+msgstr "Panneau mural (@1)"
+
+#: init.lua
+msgid "Locked sign, owned by @1"
+msgstr "Panneau verrouillé, appartenant à @1"
+
+#: init.lua
+msgid "Owned by @1"
+msgstr "Appartenant à @1"
+
+#: init.lua
+msgid "The area has been transferred to you."
+msgstr "La zone vous a été transférée."
+
+#: init.lua
+msgid "Real Estate: You have a payment of @1 @2 waiting. Use the command @3 to collect it."
+msgstr "Immobilier : un paiement de @1 @2 vous attend. Utilisez la commande @3 pour le récupérer."
+
+#: init.lua
+msgid "This sale point has no owner."
+msgstr "Ce point de vente n'a pas de propriétaire."
+
+#: init.lua
+msgid "You cannot buy your own area."
+msgstr "Vous ne pouvez pas acheter votre propre zone."
+
+#: init.lua
+msgid "You already own a property in the group \"@1\"."
+msgstr "Vous possédez déjà une propriété dans le groupe \"@1\"."
+
+#: init.lua
+msgid "You need @1 @2 to purchase this area. You have @3."
+msgstr "Vous avez besoin de @1 @2 pour acheter cette zone. Vous avez @3."
+
+#: init.lua
+msgid "Unable to remove the payment from your inventory."
+msgstr "Impossible de retirer le paiement de votre inventaire."
+
+#: init.lua
+msgid "The area could not be transferred."
+msgstr "La zone n'a pas pu être transférée."
+
+#: init.lua
+msgid "Invalid area number: \"@1\""
+msgstr "Numéro de zone invalide : \"@1\""
+
+#: init.lua
+msgid "No such area with id @1"
+msgstr "Aucune zone avec l'ID @1"
+
+#: init.lua
+msgid "You don't own area id @1"
+msgstr "Vous ne possédez pas la zone avec l'ID @1"
+
+#: init.lua
+msgid "Selling area @1"
+msgstr "Vente de la zone @1"
+
+#: init.lua
+msgid "Price must be a whole number greater than zero."
+msgstr "Le prix doit être un nombre entier supérieur à zéro."
+
+#: init.lua
+msgid "Land for sale by @1 - @2 @3"
+msgstr "Terrain à vendre par @1 - @2 @3"
+
+#: init.lua
+msgid "For Sale Sign"
+msgstr "Panneau à vendre"

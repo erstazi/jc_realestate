@@ -1,0 +1,254 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jc_realestate\n"
+"Language: zh_CN\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: init.lua
+msgid "Gold Ingot"
+msgstr "金锭"
+
+#: init.lua
+msgid "Gold Block"
+msgstr "金块"
+
+#: init.lua
+msgid "Diamond"
+msgstr "钻石"
+
+#: init.lua
+msgid "Mese"
+msgstr "Mese"
+
+#: init.lua
+msgid "Mese Crystal"
+msgstr "Mese水晶"
+
+#: init.lua
+msgid "Mese Crystal Fragment"
+msgstr "Mese水晶碎片"
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payment. Use @2 to collect it."
+msgstr "房地产：您有@1笔待收款。使用@2领取。"
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payments. Use @2 to collect them."
+msgstr "房地产：您有@1笔待收款。使用@2领取。"
+
+#: init.lua
+msgid "Real Estate: You have no pending payments."
+msgstr "房地产：您没有待收款。"
+
+#: init.lua
+msgid "Real Estate: You received @1 @2."
+msgstr "房地产：您收到了@1 @2。"
+
+#: init.lua
+msgid "Real Estate: Your inventory does not have enough room for your pending payments."
+msgstr "房地产：您的物品栏没有足够的空间存放待收款。"
+
+#: init.lua
+msgid "Real Estate: Some payments are still waiting because your inventory is full. Use the command @1 again when you have room."
+msgstr "房地产：由于您的物品栏已满，部分款项仍在等待领取。有空间后再次使用命令@1。"
+
+#: init.lua
+msgid "Real Estate: All pending payments have been collected."
+msgstr "房地产：所有待收款均已领取。"
+
+#: init.lua
+msgid "Collect pending real estate payments"
+msgstr "领取待收房地产款项"
+
+#: init.lua
+msgid "You must be online to claim your payments."
+msgstr "您必须在线才能领取款项。"
+
+#: init.lua
+msgid "Land for sale by @1"
+msgstr "@1出售的土地"
+
+#: init.lua
+msgid "Real estate for sale"
+msgstr "待售房地产"
+
+#: init.lua
+msgid "Currency:"
+msgstr "货币："
+
+#: init.lua
+msgid "Area ID"
+msgstr "区域ID"
+
+#: init.lua
+msgid "Price"
+msgstr "价格"
+
+#: init.lua
+msgid "Group Name"
+msgstr "组名"
+
+#: init.lua
+msgid "Quit"
+msgstr "退出"
+
+#: init.lua
+msgid "Save"
+msgstr "保存"
+
+#: init.lua
+msgid "This sale point is unconfigured."
+msgstr "此销售点尚未配置。"
+
+#: init.lua
+msgid "This sale point has an invalid currency."
+msgstr "此销售点的货币无效。"
+
+#: init.lua
+msgid "The area no longer exists."
+msgstr "该区域已不存在。"
+
+#: init.lua
+msgid "Area ID:"
+msgstr "区域ID："
+
+#: init.lua
+msgid "Area Name:"
+msgstr "区域名称："
+
+#: init.lua
+msgid "Area Price:"
+msgstr "区域价格："
+
+#: init.lua
+msgid "Surface Area:"
+msgstr "表面积："
+
+#: init.lua
+msgid "Group:"
+msgstr "组："
+
+#: init.lua
+msgid "Buy"
+msgstr "购买"
+
+#: init.lua
+msgid "Locked Chest (owned by @1)"
+msgstr "上锁的箱子（@1所有）"
+
+#: init.lua
+msgid "Steel Door\nOwned by @1"
+msgstr "钢门\n@1所有"
+
+#: init.lua
+msgid "Mailbox of @1"
+msgstr "@1的邮箱"
+
+#: init.lua
+msgid "Item frame (owned by @1)"
+msgstr "物品展示框（@1所有）"
+
+#: init.lua
+msgid "Pedestral frame (owned by @1)"
+msgstr "底座展示框（@1所有）"
+
+#: init.lua
+msgid "Safe (owned by @1)"
+msgstr "保险箱（@1所有）"
+
+#: init.lua
+msgid "Exchange shop (owned by @1)"
+msgstr "交易商店（@1所有）"
+
+#: init.lua
+msgid "Bank (owned by @1)"
+msgstr "银行（@1所有）"
+
+#: init.lua
+msgid "Moneychanger (owned by @1)"
+msgstr "货币兑换处（@1所有）"
+
+#: init.lua
+msgid "Warehouse (owned by @1)"
+msgstr "仓库（@1所有）"
+
+#: init.lua
+msgid "Exchange shop \"@1\" (@2)"
+msgstr "交易商店\"@1\"（@2）"
+
+#: init.lua
+msgid "Exchange shop (@1)"
+msgstr "交易商店（@1）"
+
+#: init.lua
+msgid "Wall Sign (@1)"
+msgstr "墙上告示牌（@1）"
+
+#: init.lua
+msgid "Locked sign, owned by @1"
+msgstr "上锁的告示牌，@1所有"
+
+#: init.lua
+msgid "Owned by @1"
+msgstr "@1所有"
+
+#: init.lua
+msgid "The area has been transferred to you."
+msgstr "该区域已转让给您。"
+
+#: init.lua
+msgid "Real Estate: You have a payment of @1 @2 waiting. Use the command @3 to collect it."
+msgstr "房地产：您有一笔@1 @2的款项等待领取。使用命令@3领取。"
+
+#: init.lua
+msgid "This sale point has no owner."
+msgstr "此销售点没有所有者。"
+
+#: init.lua
+msgid "You cannot buy your own area."
+msgstr "您不能购买自己的区域。"
+
+#: init.lua
+msgid "You already own a property in the group \"@1\"."
+msgstr "您已经拥有组\"@1\"中的一处房产。"
+
+#: init.lua
+msgid "You need @1 @2 to purchase this area. You have @3."
+msgstr "您需要@1 @2才能购买此区域。您拥有@3。"
+
+#: init.lua
+msgid "Unable to remove the payment from your inventory."
+msgstr "无法从您的物品栏中移除款项。"
+
+#: init.lua
+msgid "The area could not be transferred."
+msgstr "无法转让该区域。"
+
+#: init.lua
+msgid "Invalid area number: \"@1\""
+msgstr "无效的区域编号：\"@1\""
+
+#: init.lua
+msgid "No such area with id @1"
+msgstr "不存在ID为@1的区域"
+
+#: init.lua
+msgid "You don't own area id @1"
+msgstr "您不是ID为@1的区域所有者"
+
+#: init.lua
+msgid "Selling area @1"
+msgstr "出售区域@1"
+
+#: init.lua
+msgid "Price must be a whole number greater than zero."
+msgstr "价格必须是大于零的整数。"
+
+#: init.lua
+msgid "Land for sale by @1 - @2 @3"
+msgstr "@1出售的土地 - @2 @3"
+
+#: init.lua
+msgid "For Sale Sign"
+msgstr "出售告示牌"

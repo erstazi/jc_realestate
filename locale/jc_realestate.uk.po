@@ -1,0 +1,254 @@
+msgid ""
+msgstr ""
+"Project-Id-Version: jc_realestate\n"
+"Language: uk\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+
+#: init.lua
+msgid "Gold Ingot"
+msgstr "Золотий злиток"
+
+#: init.lua
+msgid "Gold Block"
+msgstr "Золотий блок"
+
+#: init.lua
+msgid "Diamond"
+msgstr "Алмаз"
+
+#: init.lua
+msgid "Mese"
+msgstr "Месе"
+
+#: init.lua
+msgid "Mese Crystal"
+msgstr "Кристал Месе"
+
+#: init.lua
+msgid "Mese Crystal Fragment"
+msgstr "Фрагмент кристала Месе"
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payment. Use @2 to collect it."
+msgstr "Нерухомість: у вас є @1 очікуваний платіж. Використайте @2, щоб отримати його."
+
+#: init.lua
+msgid "Real Estate: You have @1 pending payments. Use @2 to collect them."
+msgstr "Нерухомість: у вас є @1 очікуваних платежів. Використайте @2, щоб отримати їх."
+
+#: init.lua
+msgid "Real Estate: You have no pending payments."
+msgstr "Нерухомість: у вас немає очікуваних платежів."
+
+#: init.lua
+msgid "Real Estate: You received @1 @2."
+msgstr "Нерухомість: ви отримали @1 @2."
+
+#: init.lua
+msgid "Real Estate: Your inventory does not have enough room for your pending payments."
+msgstr "Нерухомість: у вашому інвентарі недостатньо місця для очікуваних платежів."
+
+#: init.lua
+msgid "Real Estate: Some payments are still waiting because your inventory is full. Use the command @1 again when you have room."
+msgstr "Нерухомість: деякі платежі все ще очікують, оскільки ваш інвентар заповнений. Використайте команду @1 ще раз, коли з'явиться місце."
+
+#: init.lua
+msgid "Real Estate: All pending payments have been collected."
+msgstr "Нерухомість: усі очікувані платежі отримано."
+
+#: init.lua
+msgid "Collect pending real estate payments"
+msgstr "Отримати очікувані платежі за нерухомість"
+
+#: init.lua
+msgid "You must be online to claim your payments."
+msgstr "Ви повинні бути онлайн, щоб отримати свої платежі."
+
+#: init.lua
+msgid "Land for sale by @1"
+msgstr "Земля на продаж від @1"
+
+#: init.lua
+msgid "Real estate for sale"
+msgstr "Нерухомість на продаж"
+
+#: init.lua
+msgid "Currency:"
+msgstr "Валюта:"
+
+#: init.lua
+msgid "Area ID"
+msgstr "ID ділянки"
+
+#: init.lua
+msgid "Price"
+msgstr "Ціна"
+
+#: init.lua
+msgid "Group Name"
+msgstr "Назва групи"
+
+#: init.lua
+msgid "Quit"
+msgstr "Вийти"
+
+#: init.lua
+msgid "Save"
+msgstr "Зберегти"
+
+#: init.lua
+msgid "This sale point is unconfigured."
+msgstr "Ця точка продажу не налаштована."
+
+#: init.lua
+msgid "This sale point has an invalid currency."
+msgstr "Ця точка продажу має недійсну валюту."
+
+#: init.lua
+msgid "The area no longer exists."
+msgstr "Ділянка більше не існує."
+
+#: init.lua
+msgid "Area ID:"
+msgstr "ID ділянки:"
+
+#: init.lua
+msgid "Area Name:"
+msgstr "Назва ділянки:"
+
+#: init.lua
+msgid "Area Price:"
+msgstr "Ціна ділянки:"
+
+#: init.lua
+msgid "Surface Area:"
+msgstr "Площа:"
+
+#: init.lua
+msgid "Group:"
+msgstr "Група:"
+
+#: init.lua
+msgid "Buy"
+msgstr "Купити"
+
+#: init.lua
+msgid "Locked Chest (owned by @1)"
+msgstr "Замкнена скриня (власник: @1)"
+
+#: init.lua
+msgid "Steel Door\nOwned by @1"
+msgstr "Сталеві двері\nВласник: @1"
+
+#: init.lua
+msgid "Mailbox of @1"
+msgstr "Поштова скринька @1"
+
+#: init.lua
+msgid "Item frame (owned by @1)"
+msgstr "Рамка для предмета (власник: @1)"
+
+#: init.lua
+msgid "Pedestral frame (owned by @1)"
+msgstr "Рамка на п'єдесталі (власник: @1)"
+
+#: init.lua
+msgid "Safe (owned by @1)"
+msgstr "Сейф (власник: @1)"
+
+#: init.lua
+msgid "Exchange shop (owned by @1)"
+msgstr "Магазин обміну (власник: @1)"
+
+#: init.lua
+msgid "Bank (owned by @1)"
+msgstr "Банк (власник: @1)"
+
+#: init.lua
+msgid "Moneychanger (owned by @1)"
+msgstr "Обмін валют (власник: @1)"
+
+#: init.lua
+msgid "Warehouse (owned by @1)"
+msgstr "Склад (власник: @1)"
+
+#: init.lua
+msgid "Exchange shop \"@1\" (@2)"
+msgstr "Магазин обміну \"@1\" (@2)"
+
+#: init.lua
+msgid "Exchange shop (@1)"
+msgstr "Магазин обміну (@1)"
+
+#: init.lua
+msgid "Wall Sign (@1)"
+msgstr "Настінна табличка (@1)"
+
+#: init.lua
+msgid "Locked sign, owned by @1"
+msgstr "Замкнена табличка, власник: @1"
+
+#: init.lua
+msgid "Owned by @1"
+msgstr "Власник: @1"
+
+#: init.lua
+msgid "The area has been transferred to you."
+msgstr "Ділянку передано вам."
+
+#: init.lua
+msgid "Real Estate: You have a payment of @1 @2 waiting. Use the command @3 to collect it."
+msgstr "Нерухомість: на вас очікує платіж у розмірі @1 @2. Використайте команду @3, щоб отримати його."
+
+#: init.lua
+msgid "This sale point has no owner."
+msgstr "Ця точка продажу не має власника."
+
+#: init.lua
+msgid "You cannot buy your own area."
+msgstr "Ви не можете купити власну ділянку."
+
+#: init.lua
+msgid "You already own a property in the group \"@1\"."
+msgstr "Ви вже маєте нерухомість у групі \"@1\"."
+
+#: init.lua
+msgid "You need @1 @2 to purchase this area. You have @3."
+msgstr "Для придбання цієї ділянки вам потрібно @1 @2. У вас є @3."
+
+#: init.lua
+msgid "Unable to remove the payment from your inventory."
+msgstr "Не вдалося видалити платіж з вашого інвентарю."
+
+#: init.lua
+msgid "The area could not be transferred."
+msgstr "Не вдалося передати ділянку."
+
+#: init.lua
+msgid "Invalid area number: \"@1\""
+msgstr "Недійсний номер ділянки: \"@1\""
+
+#: init.lua
+msgid "No such area with id @1"
+msgstr "Ділянки з ID @1 не існує"
+
+#: init.lua
+msgid "You don't own area id @1"
+msgstr "Ви не є власником ділянки з ID @1"
+
+#: init.lua
+msgid "Selling area @1"
+msgstr "Продаж ділянки @1"
+
+#: init.lua
+msgid "Price must be a whole number greater than zero."
+msgstr "Ціна має бути цілим числом, більшим за нуль."
+
+#: init.lua
+msgid "Land for sale by @1 - @2 @3"
+msgstr "Земля на продаж від @1 - @2 @3"
+
+#: init.lua
+msgid "For Sale Sign"
+msgstr "Табличка «Продається»"

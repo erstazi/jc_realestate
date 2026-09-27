@@ -40,12 +40,12 @@ end
 local playerpos = {}
 
 local currencies = {
-  { name = "Gold Ingot",            item = "default:gold_ingot", },
-  { name = "Gold Block",            item = "default:goldblock", },
-  { name = "Diamond",               item = "default:diamond", },
-  { name = "Mese",                  item = "default:mese", },
-  { name = "Mese Crystal",          item = "default:mese_crystal", },
-  { name = "Mese Crystal Fragment", item = "default:mese_crystal_fragment", },
+  { name = S("Gold Ingot"),            item = "default:gold_ingot", },
+  { name = S("Gold Block"),            item = "default:goldblock", },
+  { name = S("Diamond"),               item = "default:diamond", },
+  { name = S("Mese"),                  item = "default:mese", },
+  { name = S("Mese Crystal"),          item = "default:mese_crystal", },
+  { name = S("Mese Crystal Fragment"), item = "default:mese_crystal_fragment", },
 }
 
 local function get_currency_name(item)
@@ -141,6 +141,106 @@ local function add_items(player, item_name, amount)
   return true
 end
 
+local function get_group_areas(group)
+  if group == "" then
+    return {}
+  end
+
+  return core.deserialize(storage:get_string("group_areas_" .. group)) or {}
+end
+
+local function save_group_areas(group, area_ids)
+  if group == "" then
+    return
+  end
+
+  if #area_ids == 0 then
+    storage:set_string("group_areas_" .. group, "")
+  else
+    storage:set_string("group_areas_" .. group, core.serialize(area_ids))
+  end
+end
+
+local function add_group_area(group, area_id)
+  if group == "" then
+    return
+  end
+
+  local area_ids = get_group_areas(group)
+
+  for _, existing_id in ipairs(area_ids) do
+    if existing_id == area_id then
+      return
+    end
+  end
+
+  area_ids[#area_ids + 1] = area_id
+  save_group_areas(group, area_ids)
+end
+
+local function remove_group_area(group, area_id)
+  if group == "" then
+    return
+  end
+
+  local area_ids = get_group_areas(group)
+  local remaining = {}
+
+  for _, existing_id in ipairs(area_ids) do
+    if existing_id ~= area_id then
+      remaining[#remaining + 1] = existing_id
+    end
+  end
+
+  save_group_areas(group, remaining)
+end
+
+local function get_area_group(area_id)
+  if area_id <= 0 then
+    return ""
+  end
+
+  return storage:get_string("area_group_" .. area_id)
+end
+
+local function set_area_group(area_id, group)
+  if area_id <= 0 then
+    return
+  end
+
+  storage:set_string("area_group_" .. area_id, group or "")
+end
+
+local function update_area_group(area_id, group)
+  local old_group = get_area_group(area_id)
+
+  if old_group ~= "" and old_group ~= group then
+    remove_group_area(old_group, area_id)
+  end
+
+  set_area_group(area_id, group)
+
+  if group ~= "" then
+    add_group_area(group, area_id)
+  end
+end
+
+local function player_owns_group(player_name, group)
+  if group == "" then
+    return false
+  end
+
+  for _, area_id in ipairs(get_group_areas(group)) do
+    local area = areas.areas[area_id]
+
+    if area and area.owner == player_name then
+      return true
+    end
+  end
+
+  return false
+end
+
 local function get_pending_payments(player_name)
   local key = "pending_" .. player_name
   return core.deserialize(storage:get_string(key)) or {}
@@ -174,10 +274,12 @@ local function notify_pending_payment(player)
   if #pending == 0 then
     return
   end
-  local singular = "Real Estate: You have @1 pending payment. Use @2 to collect it."
-  local plural = "Real Estate: You have @1 pending payments. Use @2 to collect it."
 
-  core.chat_send_player(player_name, core.colorize("#FFFFFF", SF("Real Estate: You have %s pending payment" .. (#pending == 1 and "" or "s") .. ". Use %s to collect it.", #pending, core.colorize("#FFFF00", "/claim_payment") ) ) )
+  if #pending == 1 then
+    core.chat_send_player(player_name, core.colorize("#FFFFFF", S("Real Estate: You have @1 pending payment. Use @2 to collect it.", #pending, core.colorize("#FFFF00", "/claim_payment") ) ) )
+  else
+    core.chat_send_player(player_name, core.colorize("#FFFFFF", S("Real Estate: You have @1 pending payments. Use @2 to collect it.", #pending, core.colorize("#FFFF00", "/claim_payment") ) ) )
+  end
 end
 
 local function claim_pending_payments(player)
@@ -196,8 +298,7 @@ local function claim_pending_payments(player)
   for _, payment in ipairs(pending) do
     if get_item_capacity(player, payment.item) >= payment.amount then
       if add_items(player, payment.item, payment.amount) then
-        core.chat_send_player(player_name, "Real Estate: You received " .. payment.amount .. " " .. get_currency_name(payment.item) .. "." )
-
+        core.chat_send_player(player_name, S("Real Estate: You received @1 @2.", payment.amount, get_currency_name(payment.item) ) )
         claimed = claimed + 1
       else
         remaining[#remaining + 1] = payment
@@ -210,11 +311,11 @@ local function claim_pending_payments(player)
   save_pending_payments(player_name, remaining)
 
   if claimed == 0 then
-    core.chat_send_player(player_name, "Real Estate: Your inventory does not have enough room for your pending payments.")
+    core.chat_send_player(player_name, S("Real Estate: Your inventory does not have enough room for your pending payments.") )
   elseif #remaining > 0 then
-    core.chat_send_player(player_name, core.colorize("#FFFFFF", SF("Real Estate: Some payments are still waiting because your inventory is full. Use the command %s again when you have room.", core.colorize("#FFFF00", "/claim_payment") ) ) )
+    core.chat_send_player(player_name, core.colorize("#FFFFFF", S("Real Estate: Some payments are still waiting because your inventory is full. Use the command @1 again when you have room.", core.colorize("#FFFF00", "/claim_payment") ) ) )
   else
-    core.chat_send_player(player_name, "Real Estate: All pending payments have been collected.")
+    core.chat_send_player(player_name, S("Real Estate: All pending payments have been collected.") )
   end
 end
 
@@ -246,7 +347,7 @@ local function after_place_node(pos, player)
   local owner = player:get_player_name()
 
   meta:set_string("owner", owner)
-  meta:set_string("infotext", "Land for sale by " .. owner)
+  meta:set_string("infotext", S("Land for sale by @1", owner) )
 end
 
 local function get_setup_formspec(pos, player)
@@ -254,6 +355,7 @@ local function get_setup_formspec(pos, player)
   local id = meta:get_int("id")
   local price = meta:get_int("price")
   local currency = meta:get_string("currency")
+  local group = meta:get_string("group")
 
   local currency_rows = math.ceil(#currencies / 3)
   local fields_y = 2.7 + (currency_rows * 0.8)
@@ -273,8 +375,8 @@ local function get_setup_formspec(pos, player)
     default.gui_bg ..
     default.gui_bg_img ..
     default.gui_slots ..
-    "label[2.5,0;Real estate for sale]" ..
-    "label[0.2,1.5;Currency:]"
+    "label[2.5,0;" .. ESC(S("Real estate for sale")) .. "]" ..
+    "label[0.2,1.5;" .. ESC(S("Currency:")) .. "]"
 
   for index, currency_data in ipairs(currencies) do
     local column = (index - 1) % 3
@@ -287,10 +389,11 @@ local function get_setup_formspec(pos, player)
   end
 
   formspec = formspec ..
-    "field[1.0," .. fields_y .. ";3,1;name;Area ID;" .. id .. "]" ..
-    "field[4.5," .. fields_y .. ";3,1;price;Price;" .. price .. "]" ..
-    "button_exit[0.2," .. buttons_y .. ";1,1;Quit;Quit]" ..
-    "button[5.2," .. buttons_y .. ";3,1;sell;Save]" ..
+    "field[0.5," .. fields_y .. ";2.5,1;name;" .. ESC(S("Area ID")) .. ";" .. ESC(id) .. "]" ..
+    "field[3.2," .. fields_y .. ";2.5,1;price;" .. ESC(S("Price")) .. ";" .. ESC(price) .. "]" ..
+    "field[5.9," .. fields_y .. ";2.5,1;group;" .. ESC(S("Group Name")) .. ";" .. ESC(group) .. "]" ..
+    "button_exit[0.2," .. buttons_y .. ";1,1;Quit;" .. ESC(S("Quit")) .. "]" ..
+    "button[5.2," .. buttons_y .. ";3,1;sell;" .. ESC(S("Save")) .. "]" ..
     ""
 
   return formspec
@@ -299,6 +402,7 @@ end
 local function get_sell_formspec(pos, player)
   local meta = core.get_meta(pos)
   local owner = meta:get_string("owner")
+  local group = meta:get_string("group")
   local name = player:get_player_name()
   local id = meta:get_int("id")
   local price = meta:get_int("price")
@@ -317,17 +421,17 @@ local function get_sell_formspec(pos, player)
   end
 
   if id <= 0 or price <= 0 or currency == "" then
-    core.chat_send_player(name, "This sale point is unconfigured.")
+    core.chat_send_player(name, S("This sale point is unconfigured."))
     return
   end
 
   if get_currency_name(currency) == "Unknown" then
-    core.chat_send_player(name, "This sale point has an invalid currency.")
+    core.chat_send_player(name, S("This sale point has an invalid currency."))
     return
   end
 
   if not areas.areas[id] then
-    core.chat_send_player(name, "The area no longer exists.")
+    core.chat_send_player(name, S("The area no longer exists."))
     return
   end
 
@@ -339,15 +443,16 @@ local function get_sell_formspec(pos, player)
     default.gui_bg ..
     default.gui_bg_img ..
     default.gui_slots ..
-    "label[2.5,0;Real estate for sale]" ..
-    "label[0.5,1.0;Area Number: " .. id .. "]" ..
-    "label[0.5,1.5;Area Name: " .. ESC(area.name or "") .. "]" ..
-    "label[0.5,2.0;Area Price: " .. price .. "]" ..
+    "label[2.5,0;" .. ESC(S("Real estate for sale")) .. "]" ..
+    "label[0.5,1.0;" .. ESC(S("Area ID:")) .. " " .. id .. "]" ..
+    "label[0.5,1.5;" .. ESC(S("Area Name:")) .. " " .. ESC(area.name or "") .. "]" ..
+    "label[0.5,2.0;" .. ESC(S("Area Price:")) .. " " .. price .. "]" ..
     "item_image[0.5,2.5;1,1;" .. currency .. "]" ..
     "label[1.7,2.85;" .. ESC(currency_name) .. "]" ..
-    "label[0.5,3.5;Surface Area: " .. jc_realestate.area(id) .. " m²]" ..
-    "button_exit[0.2,5;1,1;Quit;Quit]" ..
-    "button[4.7,5;3,1;buy;Buy]"
+    "label[0.5,3.5;" .. ESC(S("Surface Area:")) .. " " .. jc_realestate.area(id) .. " m²]" ..
+    (group ~= "" and "label[0.5,4.0;" .. ESC(S("Group:")) .. " " .. ESC(group) .. "]" or "") ..
+    "button_exit[0.2,5.5;1,1;Quit;" .. ESC(S("Quit")) .. "]" ..
+    "button[4.7,5.5;3,1;buy;" .. ESC(S("Buy")) .. "]"
 
   core.after(0.1, function()
     if core.get_player_by_name(name) then
@@ -397,14 +502,14 @@ local function transfer_node_owner(pos, original_owner, new_owner, actor)
   if node.name == "default:chest_locked" or node.name == "default:chest_locked_open" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Locked Chest (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Locked Chest (owned by @1)", new_owner) )
     return
   end
 
   if starts_with(node.name, "doors:door_steel_") then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Steel Door\nOwned by " .. new_owner)
+    meta:set_string("infotext", S("Steel Door\nOwned by @1", new_owner) )
     return
   end
 
@@ -415,63 +520,63 @@ local function transfer_node_owner(pos, original_owner, new_owner, actor)
     or node.name == "technic:mithril_locked_chest" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Locked Chest (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Locked Chest (owned by @1)", new_owner) )
     return
   end
 
   if node.name == "inbox:empty" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", new_owner .. "'s Mailbox")
+    meta:set_string("infotext", S("Mailbox of @1", new_owner) )
     return
   end
 
   if node.name == "itemframes:frame" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Item frame (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Item frame (owned by @1)", new_owner) )
     return
   end
 
   if node.name == "itemframes:pedestral" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Pedestral frame (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Pedestral frame (owned by @1)", new_owner) )
     return
   end
 
   if node.name == "currency:safe" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Safe (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Safe (owned by @1)", new_owner ) )
     return
   end
 
   if node.name == "currency:shop" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Exchange shop (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Exchange shop (owned by @1)", new_owner ) )
     return
   end
 
   if node.name == "bitchange:bank" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Bank (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Bank (owned by @1)", new_owner ) )
     return
   end
 
   if node.name == "bitchange:moneychanger" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Moneychanger (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Moneychanger (owned by @1)", new_owner ) )
     return
   end
 
   if node.name == "bitchange:warehouse" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Warehouse (owned by " .. new_owner .. ")")
+    meta:set_string("infotext", S("Warehouse (owned by @1)", new_owner) )
     return
   end
 
@@ -480,9 +585,9 @@ local function transfer_node_owner(pos, original_owner, new_owner, actor)
     meta:set_string("doors_owner", new_owner)
 
     if meta:get_string("title") ~= "" then
-      meta:set_string("infotext", "Exchange shop \"" .. meta:get_string("title") .. "\" (" .. new_owner .. ")")
+      meta:set_string("infotext", S("Exchange shop \"@1\" (@2)", meta:get_string("title"), new_owner ) )
     else
-      meta:set_string("infotext", "Exchange shop (" .. new_owner .. ")")
+      meta:set_string("infotext", S("Exchange shop (@1)", new_owner) )
     end
 
     return
@@ -491,15 +596,25 @@ local function transfer_node_owner(pos, original_owner, new_owner, actor)
   if node.name == "locked_sign:sign_wall_locked" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "\"\" (" .. new_owner .. ")")
+    meta:set_string("infotext", S("Wall Sign (@1)", new_owner) )
     return
   end
 
   if node.name == "basic_signs:sign_wall_locked" then
     meta:set_string("owner", new_owner)
     meta:set_string("doors_owner", new_owner)
-    meta:set_string("infotext", "Locked sign, owned by " .. new_owner)
+    meta:set_string("infotext", S("Locked sign, owned by @1", new_owner) )
     return
+  end
+
+  if starts_with(node.name, "multidecor:") then
+    local def = core.registered_nodes[node.name]
+
+    if def and def.add_properties and def.add_properties.door and def.add_properties.door.has_lock then
+      meta:set_string("owner", new_owner)
+      meta:set_string("infotext", S("Owned by @1", new_owner) )
+      return
+    end
   end
 
   if starts_with(node.name, "smartshop:shop") and smartshop then
@@ -547,7 +662,7 @@ local function transfer_area_nodes(area, original_owner, new_owner, actor)
   end
 end
 
-local function transfer_area(id, buyer, seller, pos, actor)
+local function transfer_area(id, buyer, seller, pos, actor, group)
   local area = areas.areas[id]
 
   if not area then
@@ -564,9 +679,11 @@ local function transfer_area(id, buyer, seller, pos, actor)
   area.owner = buyer
   areas:save()
 
+  update_area_group(id, group)
+
   core.set_node(pos, {name = "air"})
 
-  core.chat_send_player(buyer, "The area has been transferred to you." )
+  core.chat_send_player(buyer, S("The area has been transferred to you.") )
 
   return true
 end
@@ -577,7 +694,7 @@ local function pay_seller(seller, currency, price)
   local seller_player = core.get_player_by_name(seller)
 
   if seller_player then
-    core.chat_send_player(seller, core.colorize("#FFFFFF", SF("Real Estate: You have a payment of %s %s waiting. Use the command %s to collect it.", price, get_currency_name(currency), core.colorize("#FFFF00", "/claim_payment") ) ) )
+    core.chat_send_player(seller, core.colorize("#FFFFFF", S("Real Estate: You have a payment of @1 @2 waiting. Use the command @3 to collect it.", price, get_currency_name(currency), core.colorize("#FFFF00", "/claim_payment") ) ) )
   end
 
   return true
@@ -601,51 +718,53 @@ core.register_on_player_receive_fields(function(player, form, pressed)
     local price = meta:get_int("price")
     local currency = meta:get_string("currency")
     local owner = meta:get_string("owner")
+    local group = meta:get_string("group")
 
     if id <= 0 or price <= 0 then
-      core.chat_send_player(name, "This sale point is unconfigured.")
+      core.chat_send_player(name, S("This sale point is unconfigured.") )
       return
     end
 
     if not areas.areas[id] then
-      core.chat_send_player(name, "The area no longer exists.")
+      core.chat_send_player(name, S("The area no longer exists."))
       return
     end
 
     if get_currency_name(currency) == "Unknown" then
-      core.chat_send_player(name, "This sale point has an invalid currency.")
+      core.chat_send_player(name, S("This sale point has an invalid currency."))
       return
     end
 
     if owner == "" then
-      core.chat_send_player(name, "This sale point has no owner.")
+      core.chat_send_player(name, S("This sale point has no owner."))
       return
     end
 
     if owner == name then
-      core.chat_send_player(name, "You cannot buy your own area.")
+      core.chat_send_player(name, S("You cannot buy your own area."))
+      return
+    end
+
+    if group ~= "" and player_owns_group(name, group) then
+      core.chat_send_player(name, S("You already own a property in the group \"@1\".", group ) )
       return
     end
 
     local available = count_items(player, currency)
 
     if available < price then
-      core.chat_send_player(name, "You need " .. price .. " " .. get_currency_name(currency) .. " to purchase this area. You have " .. available .. "." )
-
+      core.chat_send_player(name, S("You need @1 @2 to purchase this area. You have @3.", price, get_currency_name(currency), available) )
       return
     end
 
     if not remove_items(player, currency, price) then
-      core.chat_send_player(name, "Unable to remove the payment from your inventory." )
-
+      core.chat_send_player(name, S("Unable to remove the payment from your inventory.") )
       return
     end
 
-    if not transfer_area(id, name, owner, pos, player) then
+    if not transfer_area(id, name, owner, pos, player, group) then
       add_items(player, currency, price)
-
-      core.chat_send_player(name, "The area could not be transferred." )
-
+      core.chat_send_player(name, S("The area could not be transferred.") )
       return
     end
 
@@ -691,25 +810,21 @@ core.register_on_player_receive_fields(function(player, form, pressed)
         local id = tonumber(pressed.name)
 
         if not id then
-          core.chat_send_player(name, "Invalid area number: \"" .. pressed.name .. "\"" )
-
+          core.chat_send_player(name, S("Invalid area number: \"@1\"", pressed.name ) )
           return
         end
 
         if not areas.areas[id] then
-          core.chat_send_player(name, "No such area with id " .. pressed.name )
-
+          core.chat_send_player(name, S("No such area with id @1", pressed.name ) )
           return
         end
 
         if areas.areas[id].owner ~= name then
-          core.chat_send_player(name, "You don't own area " .. id )
-
+          core.chat_send_player(name, S("You don't own area id @1", id ) )
           return
         end
 
-        core.chat_send_player(name, "Selling area " .. (areas.areas[id].name or "") )
-
+        core.chat_send_player(name, S("Selling area @1", (areas.areas[id].name or "") ) )
         meta:set_int("id", id)
       end
 
@@ -720,12 +835,18 @@ core.register_on_player_receive_fields(function(player, form, pressed)
         local price = tonumber(pressed.price)
 
         if not price or price < 1 or price ~= math.floor(price) then
-          core.chat_send_player(name, "Price must be a whole number greater than zero." )
-
+          core.chat_send_player(name, S("Price must be a whole number greater than zero.") )
           return
         end
 
         meta:set_int("price", price)
+      end
+
+      --------------------------------------------------------------
+      -- Group.
+      --------------------------------------------------------------
+      if pressed.group then
+        meta:set_string("group", pressed.group:trim())
       end
 
       local currency = meta:get_string("currency")
@@ -744,7 +865,7 @@ core.register_on_player_receive_fields(function(player, form, pressed)
       local id = meta:get_int("id")
       local price = meta:get_int("price")
 
-      meta:set_string("infotext", "Land for sale by " .. name .. " - " .. price .. " " .. get_currency_name(currency) )
+      meta:set_string("infotext", S("Land for sale by @1 - @2 @3", name, price, get_currency_name(currency) ) )
 
       core.close_formspec(name, "jc_realestate.setup")
 
@@ -764,7 +885,7 @@ core.register_node("jc_realestate:sign", {
   },
   drawtype = "nodebox",
   paramtype = "light",
-  description = "For Sale Sign",
+  description = S("For Sale Sign"),
   node_box = {
     type = "fixed",
     fixed = {
