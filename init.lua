@@ -348,6 +348,35 @@ local function after_place_node(pos, player)
 
   meta:set_string("owner", owner)
   meta:set_string("infotext", S("Land for sale by @1", owner) )
+
+  local area_ids = areas:getAreasAtPos(pos)
+  local selected_id
+  local selected_size
+  local selected_group
+
+  for area_id, area in pairs(area_ids) do
+    if area.owner == owner then
+      local group = get_area_group(area_id)
+
+      if group ~= "" then
+        local size = (math.abs(area.pos1.x - area.pos2.x) + 1) *
+          (math.abs(area.pos1.y - area.pos2.y) + 1) *
+          (math.abs(area.pos1.z - area.pos2.z) + 1)
+
+        if not selected_size or size < selected_size then
+          selected_id = area_id
+          selected_size = size
+          selected_group = group
+        end
+      end
+    end
+  end
+
+  if selected_id then
+    meta:set_int("id", selected_id)
+    meta:set_string("group", selected_group)
+    meta:set_int("area_locked", 1)
+  end
 end
 
 local function get_setup_formspec(pos, player)
@@ -356,6 +385,16 @@ local function get_setup_formspec(pos, player)
   local price = meta:get_int("price")
   local currency = meta:get_string("currency")
   local group = meta:get_string("group")
+  local group_locked = false
+
+  if id > 0 then
+    local area_group = get_area_group(id)
+
+    if area_group ~= "" then
+      group = area_group
+      group_locked = true
+    end
+  end
 
   local currency_rows = math.ceil(#currencies / 3)
   local fields_y = 2.7 + (currency_rows * 0.8)
@@ -390,8 +429,18 @@ local function get_setup_formspec(pos, player)
 
   formspec = formspec ..
     "field[0.5," .. fields_y .. ";2.5,1;name;" .. ESC(S("Area ID")) .. ";" .. ESC(id) .. "]" ..
-    "field[3.2," .. fields_y .. ";2.5,1;price;" .. ESC(S("Price")) .. ";" .. ESC(price) .. "]" ..
-    "field[5.9," .. fields_y .. ";2.5,1;group;" .. ESC(S("Group Name")) .. ";" .. ESC(group) .. "]" ..
+    "field[3.2," .. fields_y .. ";2.5,1;price;" .. ESC(S("Price")) .. ";" .. ESC(price) .. "]"
+
+  if group_locked then
+    formspec = formspec ..
+      "label[5.9," .. (fields_y - 0.6) .. ";" .. ESC(S("Group Name")) .. "]" ..
+      "label[5.9," .. (fields_y - 0.1) .. ";" .. ESC(group) .. "]"
+  else
+    formspec = formspec ..
+      "field[5.9," .. fields_y .. ";2.5,1;group;" .. ESC(S("Group Name")) .. ";" .. ESC(group) .. "]"
+  end
+
+  formspec = formspec ..
     "button_exit[0.2," .. buttons_y .. ";3,1;Quit;" .. ESC(S("Quit")) .. "]" ..
     "button[5.2," .. buttons_y .. ";3,1;sell;" .. ESC(S("Save")) .. "]" ..
     ""
@@ -806,8 +855,10 @@ core.register_on_player_receive_fields(function(player, form, pressed)
       --------------------------------------------------------------
       -- Area number.
       --------------------------------------------------------------
+      local id = meta:get_int("id")
+
       if pressed.name then
-        local id = tonumber(pressed.name)
+        id = tonumber(pressed.name)
 
         if not id then
           core.chat_send_player(name, S("Invalid area number: \"@1\"", pressed.name ) )
@@ -826,6 +877,14 @@ core.register_on_player_receive_fields(function(player, form, pressed)
 
         core.chat_send_player(name, S("Selling area @1 [@2]", (areas.areas[id].name or ""), id ) )
         meta:set_int("id", id)
+
+        local group = get_area_group(id)
+
+        if group ~= "" then
+          meta:set_string("group", group)
+        else
+          meta:set_string("group", "")
+        end
       end
 
       --------------------------------------------------------------
@@ -845,7 +904,11 @@ core.register_on_player_receive_fields(function(player, form, pressed)
       --------------------------------------------------------------
       -- Group.
       --------------------------------------------------------------
-      if pressed.group then
+      local area_group = get_area_group(id)
+
+      if area_group ~= "" then
+        meta:set_string("group", area_group)
+      elseif pressed.group then
         meta:set_string("group", pressed.group:trim())
       end
 
